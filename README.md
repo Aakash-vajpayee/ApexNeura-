@@ -232,7 +232,7 @@ Future training:
 
 ## Dashboard
 
-*Add dashboard screenshot here*
+![alt text](image.png)
 
 ## API Docs
 
