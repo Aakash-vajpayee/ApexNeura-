@@ -236,7 +236,7 @@ Future training:
 
 ## API Docs
 
-*Add FastAPI Swagger screenshot here*
+![alt text](image-1.png)
 
 ---
 
