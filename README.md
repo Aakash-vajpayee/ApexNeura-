@@ -14,313 +14,203 @@
 
 ---
 
-# Overview
+# ApexNeura AI
 
-Neurapex AI is a full-stack AI healthcare platform designed to assist in:
+<p align="center">
+  <img src="frontend/src/assets/hero.png" alt="ApexNeura Banner" width="100%" />
+</p>
 
-* Skin lesion classification
-* Alzheimer MRI analysis
-* AI-assisted symptom support
-* Medical imaging workflows
-* Future RAG-powered healthcare assistance
+<p align="center">
+  <b>AI-Powered Medical Diagnostic Platform</b><br/>
+  Skin Lesion Analysis · Alzheimer's MRI Detection · AI Medical Assistant
+</p>
 
-The platform combines a modern React frontend with a scalable FastAPI backend integrated with HuggingFace AI models.
+<p align="center">
+  <a href="https://apex-neura.vercel.app" target="_blank"><b>🔗 Live Demo</b></a> &nbsp;|&nbsp;
+  <a href="https://github.com/Aakash-vajpayee/ApexNeura-" target="_blank"><b>📂 GitHub</b></a>
+</p>
 
----
-
-# Features
-
-## DeepDown — Skin Disease Analysis
-
-* AI-powered skin lesion classification
-* Risk-level prediction
-* ICD-10 mapping
-* Medical recommendation generation
-* HuggingFace image classification integration
-
-## AlzMind — Alzheimer MRI Analysis
-
-* MRI-based Alzheimer risk prediction
-* Cognitive risk classification
-* Neuroimaging findings generation
-* Structured medical reporting
-* Future DICOM/NIfTI support
-
-## AI Healthcare Backend
-
-* FastAPI async architecture
-* Image preprocessing pipeline
-* AI inference handling
-* Structured JSON responses
-* Scalable API design
-
-## Future Roadmap
-
-* LangChain RAG integration
-* Gemini/Llama medical assistant
-* MongoDB report history
-* Authentication system
-* HIPAA-aware deployment architecture
-* 3D MRI processing pipeline
+<p align="center">
+  <img src="https://img.shields.io/badge/React-19-blue?style=flat-square&logo=react" />
+  <img src="https://img.shields.io/badge/FastAPI-0.100+-green?style=flat-square&logo=fastapi" />
+  <img src="https://img.shields.io/badge/PyTorch-Local%20Inference-red?style=flat-square&logo=pytorch" />
+  <img src="https://img.shields.io/badge/Gemini-AI%20Assistant-yellow?style=flat-square&logo=google" />
+  <img src="https://img.shields.io/badge/MongoDB-Atlas-green?style=flat-square&logo=mongodb" />
+</p>
 
 ---
 
-# Tech Stack
+## Overview
 
-| Layer            | Technology          |
-| ---------------- | ------------------- |
-| Frontend         | React + Vite        |
-| Backend          | FastAPI             |
-| AI Models        | HuggingFace         |
-| Language         | Python + JavaScript |
-| Image Processing | Pillow + NumPy      |
-| Future NLP       | LangChain + Gemini  |
-| Database         | MongoDB             |
-| Vector DB        | ChromaDB / Pinecone |
-| Deployment       | Vercel + Render     |
+ApexNeura is a full-stack AI medical diagnostic platform with two locally-trained deep learning models and an AI-powered medical chatbot. The system gathers patient history through conversation before performing image analysis.
+
+**Demo Flow:**
+```
+Module Select → NeuraBot (3 questions) → Image Upload → AI Analysis → PDF Report
+```
 
 ---
 
-# Project Structure
+## Modules
 
-```bash
-Neurapex-AI/
-│
+### ◈ DeepDown — Dermatological Analysis
+- Skin lesion classification (Benign / Malignant / Indeterminate)
+- EfficientNet-B4 trained on 25K+ ISIC dataset images
+- **79.5% accuracy** · Risk stratification · ICD-10 mapping
+- Class probability breakdown with confidence scores
+
+### ◉ AlzMind — Neurological Imaging
+- Alzheimer's staging from brain MRI scans
+- Vision Transformer (ViT) trained on 44K+ MRI images
+- **99.8% accuracy** · CDR scoring · Affected brain regions
+- 4-class classification: NonDemented → VeryMild → Mild → Moderate
+
+### 🧠 NeuraBot — AI Medical Assistant
+- Gemini-powered conversational AI
+- Asks exactly 3 targeted questions before image analysis
+- Responds in Hindi / English / Hinglish
+- Session-based conversation history
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Frontend | React 19 + Vite |
+| Backend | FastAPI + Python |
+| Skin Model | EfficientNet-B4 (timm) |
+| Brain Model | Vision Transformer (ViT) |
+| AI Chatbot | Google Gemini + LangChain |
+| Database | MongoDB Atlas |
+| Auth | JWT + bcrypt |
+| PDF Reports | ReportLab |
+| Deployment | Vercel + ngrok |
+
+---
+
+## Features
+
+- 🔐 JWT Authentication (Register / Login)
+- 🤖 AI chatbot gathers patient info before analysis
+- 🧬 Local ML inference (no external API for models)
+- 📊 Detailed diagnostic reports with confidence scores
+- 📄 Professional PDF report generation
+- 📁 Report history with filter by module/risk level
+- 🗑️ Delete reports from history
+- ⬇️ JSON export of results
+
+---
+
+## Project Structure
+
+```
+ApexNeura/
 ├── frontend/
 │   ├── src/
-│   ├── public/
+│   │   ├── ApexNeuraApp.jsx    # Main app + ChatPanel
+│   │   ├── AuthPage.jsx        # Login / Register
+│   │   └── App.jsx             # Root component
 │   ├── package.json
 │   └── vite.config.js
 │
 ├── backend/
-│   ├── main.py
+│   ├── main.py                 # FastAPI endpoints
+│   ├── chat.py                 # NeuraBot (Gemini)
+│   ├── auth.py                 # JWT authentication
+│   ├── database.py             # MongoDB connection
+│   ├── models.py               # Pydantic schemas
+│   ├── pdf_generator.py        # PDF report generation
 │   ├── requirements.txt
-│   └── scripts/
-│       ├── train_deepdown.py
-│       ├── train_alzmind.py
-│       ├── setup_rag.py
-│       └── export_final_model.py
+│   └── .env                    # API keys (not committed)
 │
-├── README.md
-└── .gitignore
+└── README.md
 ```
 
 ---
 
-# Installation
+## Local Setup
 
-## Clone Repository
-
+### Clone Repository
 ```bash
-git clone https://github.com/YOUR_USERNAME/Neurapex-AI.git
-cd Neurapex-AI
+git clone https://github.com/Aakash-vajpayee/ApexNeura-.git
+cd ApexNeura-
 ```
 
----
+### Backend Setup
+```bash
+cd backend
+python -m venv venv
+venv\Scripts\activate          # Windows
+pip install -r requirements.txt
+```
 
-# Frontend Setup
+Create `.env` in backend folder:
+```env
+GEMINI_API_KEY=your_gemini_api_key
+MONGODB_URL=your_mongodb_url
+JWT_SECRET=your_secret_key
+JWT_ALGORITHM=HS256
+JWT_EXPIRE_MINUTES=10080
+```
 
+Run backend:
+```bash
+uvicorn main:app --reload --port 8000
+```
+
+### Frontend Setup
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
 
-Frontend runs on:
+---
 
-```bash
-http://localhost:5173
-```
+## API Endpoints
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/api/auth/register` | POST | User registration |
+| `/api/auth/login` | POST | User login |
+| `/api/chat` | POST | NeuraBot conversation |
+| `/api/deepdown/analyze` | POST | Skin lesion analysis |
+| `/api/alzmind/analyze` | POST | Brain MRI analysis |
+| `/api/reports/save` | POST | Save report to DB |
+| `/api/reports/history` | GET | Get report history |
+| `/api/reports/pdf` | POST | Generate PDF report |
 
 ---
 
-# Backend Setup
+## Models
 
-```bash
-cd backend
+| Model | Architecture | Dataset | Accuracy |
+|-------|-------------|---------|----------|
+| DeepDown | EfficientNet-B4 | ISIC 25K+ images | 79.5% |
+| AlzMind | Vision Transformer (ViT) | 44K+ MRI scans | 99.8% |
 
-# Create virtual environment
-python -m venv venv
-
-# Activate environment
-# Windows
-venv\Scripts\activate
-
-# Install dependencies
-pip install -r requirements.txt
-```
+Both models run **locally** — no external API calls for inference.
 
 ---
 
-# Environment Variables
+## Disclaimer
 
-Create a `.env` file inside the backend folder:
-
-```env
-HF_API_KEY=your_huggingface_api_key
-GEMINI_API_KEY=your_gemini_api_key
-```
+⚠️ This is a **research prototype** for educational purposes only.
+Not intended for clinical diagnosis or real medical decision-making.
+Always consult certified healthcare professionals.
 
 ---
 
-# Run Backend
+## Author
 
-```bash
-uvicorn main:app --reload --port 8000
-```
-
-Backend API:
-
-```bash
-http://localhost:8000
-```
-
-Swagger Docs:
-
-```bash
-http://localhost:8000/docs
-```
+**Aakash Vajpayee** — AI & Full Stack Developer
 
 ---
 
-# API Endpoints
+## License
 
-| Endpoint                | Description            |
-| ----------------------- | ---------------------- |
-| `/api/deepdown/analyze` | Skin lesion analysis   |
-| `/api/alzmind/analyze`  | Alzheimer MRI analysis |
-| `/api/chat`             | NLP medical assistant  |
-| `/api/models`           | Available AI models    |
-
----
-
-# AI Models
-
-## Skin Disease Model
-
-Current prototype:
-
-```bash
-dima806/skin_types_image_detection
-```
-
-Future training:
-
-* ISIC Archive dataset
-* ResNet-50
-* EfficientNet-B4
-
----
-
-## Alzheimer MRI Model
-
-Current prototype:
-
-```bash
-Falah/Alzheimer_MRI
-```
-
-Future training:
-
-* ADNI dataset
-* Vision Transformer (ViT)
-* 3D-CNN architecture
-
----
-
-# Screenshots
-
-## Dashboard
-
-![alt text](image.png)
-
-## API Docs
-
-![alt text](image-1.png)
-
----
-
-# Future Enhancements
-
-* AI medical chatbot
-* Multi-model inference
-* MRI segmentation pipeline
-* Medical report export
-* Authentication system
-* Cloud deployment
-* Research paper RAG assistant
-* Clinical workflow integration
-
----
-
-# Deployment
-
-## Frontend Deployment
-
-Recommended:
-
-* Vercel
-
-## Backend Deployment
-
-Recommended:
-
-* Render
-* Railway
-* AWS
-
----
-
-# Important Disclaimer
-
-⚠️ This project is a research and educational prototype.
-
-It is NOT intended for clinical diagnosis or real-world medical decision-making.
-Always consult certified healthcare professionals for medical evaluation.
-
----
-
-# Contributing
-
-Contributions, ideas, and improvements are welcome.
-
-Feel free to fork the repository and submit pull requests.
-
----
-
-# Author
-
-## Aakash Vajpayee
-
-AI & Full Stack Developer
-
-* React Developer
-* FastAPI Backend Developer
-* AI/ML Enthusiast
-* Healthcare AI Research Projects
-
----
-
-# License
-
-This project is licensed under the MIT License.
-
----
-
-# Repository Topics
-
-```bash
-react
-fastapi
-machine-learning
-ai
-medical-ai
-huggingface
-python
-healthcare
-mri-analysis
-computer-vision
-```
+MIT License
 
 ---
 
