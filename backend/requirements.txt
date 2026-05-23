@@ -3,3 +3,5 @@ uvicorn
 python-dotenv
 langchain
 google-genai
+langchain-google-genai
+langchain-core
