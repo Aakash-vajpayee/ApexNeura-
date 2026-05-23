@@ -1,19 +1,3 @@
-# Neurapex AI
-
-<p align="center">
-  <img src="frontend/src/assets/hero.png" alt="Neurapex AI Banner" width="100%" />
-</p>
-
-<p align="center">
-  <b>AI-Powered Healthcare Platform for Skin Disease & Alzheimer MRI Analysis</b>
-</p>
-
-<p align="center">
-  Built with React, FastAPI, HuggingFace & Medical AI Workflows
-</p>
-
----
-
 # ApexNeura AI
 
 <p align="center">
