@@ -22,6 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
 # Python
 venv/
 __pycache__/
@@ -55,3 +56,9 @@ frontend/node_modules/
 backend/scripts/*.exe
 backend/scripts/activate*
 backend/scripts/deactivate*
+
+# Generated PDFs
+*.pdf
+
+# ngrok
+ngrok.yml
