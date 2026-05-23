@@ -62,7 +62,7 @@ Module Select → NeuraBot (3 questions) → Image Upload → AI Analysis → PD
 ### 🏠 Dashboard
 
 <!-- ![ApexNeura Dashboard](image.png) -->
-![ApexNeura Dashboard](image-4.png)
+![ApexNeura Dashboard](image-2.png)
 
 ### 📡 API Documentation
 ![API Docs](image-1.png)
